@@ -1,0 +1,245 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Gael Minkandi - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .project-card:hover, .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+        .nav-link:hover {
+            color: #63B3ED;
+        }
+        .profile-photo {
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-blue-900 text-white fixed w-full top-0 z-10 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Emmanuel Gael Minkandi</h1>
+            <div class="space-x-6">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Portfolio</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#cv" class="nav-link">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-blue-900 text-white py-20 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="Designer.jpg" alt="Emmanuel Gael Minkandi" class="profile-photo w-32 h-32 animate-fadeInUp" style="animation-delay: 0.1s;">
+            </div>
+            <h1 class="text-5xl font-bold animate-fadeInUp">Emmanuel Gael Minkandi</h1>
+            <p class="text-xl mt-4 animate-fadeInUp" style="animation-delay: 0.2s;">
+                IT Analyst | Cloud Architect | Cybersecurity & DevOps Specialist
+            </p>
+            <div class="mt-6 flex justify-center space-x-6 animate-fadeInUp" style="animation-delay: 0.4s;">
+                <a href="tel:+59895890307" class="hover:text-blue-300"><i class="fas fa-phone"></i> +598 95 890 307</a>
+                <a href="/cdn-cgi/l/email-protection#8ce9e1e1ede2f9e9e0ebede9e0e1ccebe1ede5e0a2efe3e1" class="hover:text-blue-300"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="20454d4d414e55454c4741454c4d60474d41494c0e434f4d">[email&#160;protected]</span></a>
+                <a href="https://linkedin.com/in/emmanuel-minkandi-63457986" target="_blank" class="hover:text-blue-300"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center animate-fadeInUp">About Me</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                Versatile IT Analyst with over 6 years of experience in cloud architecture (AWS), cybersecurity (EC-Council), DevOps, and technical support. Skilled in web development, data analysis (Power BI), and IT project management. Passionate about optimizing systems for performance, security, and scalability, with a proven track record in delivering innovative solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-gray-200 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center animate-fadeInUp">Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">School Management Application</h3>
+                    <p class="text-gray-600 mb-4">Developed a full-stack app using React.js, Strapi, and MySQL to streamline administrative tasks for 500+ users.</p>
+                    <a href="https://github.com/emmanuel-minkandi/school-management-app" target="_blank" class="text-blue-900 hover:text-blue-300"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Movie Land</h3>
+                    <p class="text-gray-600 mb-4">Built a scalable website for movie enthusiasts, integrating secure APIs and responsive design.</p>
+                    <a href="https://github.com/Lamezur/Movieland" target="_blank" class="text-blue-900 hover:text-blue-300"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Abri</h3>
+                    <p class="text-gray-600 mb-4">A full-stack app for an NGO to help homeless people.</p>
+                    <a href="https://github.com/Lamezur/abri" target="_blank" class="text-blue-900 hover:text-blue-300"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center animate-fadeInUp">Blog</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Introduction to AWS Cloud Architecture</h3>
+                    <p class="text-gray-600 mb-2">A beginner's guide to setting up scalable cloud solutions with AWS. Published on 08/05/2025.</p>
+                    <a href="article1.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                </div>
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Best Practices in DevOps</h3>
+                    <p class="text-gray-600 mb-2">Exploring CI/CD pipelines and containerization with Docker. Published on 05/05/2025.</p>
+                    <a href="article2.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                </div>
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Cybersecurity Tips for 2025</h3>
+                    <p class="text-gray-600 mb-2">Essential strategies to protect your systems from emerging threats. Published on 02/05/2025.</p>
+                    <a href="article3.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Download Section -->
+    <section id="cv" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 animate-fadeInUp">Download My CV</h2>
+            <p class="text-lg text-gray-700 mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">Available in multiple languages:</p>
+            <div class="flex justify-center space-x-6 animate-fadeInUp" style="animation-delay: 0.4s;">
+                <a href="CV_Emmanuel_Minkandi_EN.pdf" download class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">Download (English)</a>
+                <a href="CV_Emmanuel_Minkandi_FR.pdf" download class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">Download (Français)</a>
+                <a href="CV_Emmanuel_Minkandi_ES.pdf" download class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">Download (Español)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Emmanuel Gael Minkandi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Trigger animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-fadeInUp').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c849218b1f1383',t:'MTc0NjcwMDI2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
