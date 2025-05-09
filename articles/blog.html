@@ -42,7 +42,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introduction to AWS Cloud Architecture - Emmanuel Gael Minkandi</title>
+    <title>Blog - Emmanuel Gael Minkandi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -53,18 +53,12 @@
         .animate-fadeInUp {
             animation: fadeInUp 0.6s ease-out forwards;
         }
-        .article-image {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 0 auto;
-            display: block;
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
         }
-        .article-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .nav-link:hover {
+            color: #63B3ED;
         }
     </style>
 </head>
@@ -73,41 +67,41 @@
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold">Emmanuel Gael Minkandi</h1>
             <div class="space-x-6">
-                <a href="../../index.html" class="nav-link">Home</a>
-                <a href="../../certifications.html" class="nav-link">Certifications</a>
-                <a href="../../portfolio/portfolio.html" class="nav-link">Portfolio</a>
-                <a href="../blog.html" class="nav-link">Blog</a>
-                <a href="../../contact/contact.html" class="nav-link">Contact</a>
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../certifications.html" class="nav-link">Certifications</a>
+                <a href="../portfolio/portfolio.html" class="nav-link">Portfolio</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="../contact/contact.html" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
     <header class="bg-blue-900 text-white py-20 mt-16">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl font-bold animate-fadeInUp">Introduction to AWS Cloud Architecture</h1>
-            <p class="text-lg mt-4 animate-fadeInUp" style="animation-delay: 0.2s;">Published on 08/05/2025</p>
+            <h1 class="text-4xl font-bold animate-fadeInUp">Blog</h1>
+            <p class="text-lg mt-4 animate-fadeInUp" style="animation-delay: 0.2s;">Explore my latest articles on IT, cloud, DevOps, and cybersecurity.</p>
         </div>
     </header>
 
     <section class="py-16">
         <div class="container mx-auto px-4">
-            <p class="text-lg text-gray-700 mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">
-                AWS (Amazon Web Services) is a leading cloud computing platform that enables businesses to build scalable and cost-effective solutions. This article explores the fundamentals of AWS cloud architecture, focusing on key services like EC2, S3, and VPC.
-            </p>
-            <h2 class="text-2xl font-semibold text-blue-900 mb-4 animate-fadeInUp" style="animation-delay: 0.4s;">Key AWS Services</h2>
-            <div class="mb-6">
-                <img src="keyaws.jpg" alt="AWS Services" class="article-image animate-fadeInUp" style="animation-delay: 0.6s;">
-                <p class="text-sm text-gray-500 mt-2 text-center">AWS Services</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Introduction to AWS Cloud Architecture</h3>
+                    <p class="text-gray-600 mb-2">A beginner's guide to setting up scalable cloud solutions with AWS. Published on 08/05/2025.</p>
+                    <a href="article1.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                </div>
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Best Practices in DevOps</h3>
+                    <p class="text-gray-600 mb-2">Exploring CI/CD pipelines and containerization with Docker. Published on 05/05/2025.</p>
+                    <a href="article2.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                </div>
+                <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Cybersecurity Tips for 2025</h3>
+                    <p class="text-gray-600 mb-2">Essential strategies to protect your systems from emerging threats. Published on 02/05/2025.</p>
+                    <a href="article3.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                </div>
             </div>
-            <ul class="list-disc list-inside text-gray-700 mb-6 animate-fadeInUp" style="animation-delay: 0.8s;">
-                <li><strong>EC2 (Elastic Compute Cloud)</strong>: Virtual servers for computing power.</li>
-                <li><strong>S3 (Simple Storage Service)</strong>: Scalable object storage.</li>
-                <li><strong>VPC (Virtual Private Cloud)</strong>: Isolated network environment.</li>
-            </ul>
-            <h2 class="text-2xl font-semibold text-blue-900 mb-4 animate-fadeInUp" style="animation-delay: 1.0s;">Best Practices</h2>
-            <p class="text-lg text-gray-700 mb-6 animate-fadeInUp" style="animation-delay: 1.2s;">
-                To optimize AWS usage, consider implementing auto-scaling, using IAM for security, and regularly monitoring with CloudWatch. These practices ensure high availability and cost efficiency.
-            </p>
         </div>
     </section>
 
@@ -130,5 +124,5 @@
             observer.observe(element);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d1e5ae8bd9bf9a',t:'MTc0NjgwMTA1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d1e5ae2d3144e8',t:'MTc0NjgwMTA1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
