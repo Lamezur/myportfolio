@@ -1,0 +1,188 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications - Emmanuel Gael Minkandi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .nav-link:hover {
+            color: #63B3ED;
+        }
+        .cert-link:hover {
+            color: #1E90FF;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-blue-900 text-white fixed w-full top-0 z-10 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Emmanuel Gael Minkandi</h1>
+            <div class="space-x-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="certifications.html" class="nav-link">Certifications</a>
+                <a href="portfolio/portfolio.html" class="nav-link">Portfolio</a>
+                <a href="articles/blog.html" class="nav-link">Blog</a>
+                <a href="contact/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-blue-900 text-white py-20 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold animate-fadeInUp">Certifications</h1>
+            <p class="text-lg mt-4 animate-fadeInUp" style="animation-delay: 0.2s;">A showcase of my professional certifications in IT, cloud, and cybersecurity.</p>
+        </div>
+    </header>
+
+    <section class="py-16 bg-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <p class="text-gray-700 mb-2">AWS Certified Solutions Architect – Associate</p>
+                    <a href="https://credentials.edx.org/credentials/f085d978af8147d29aec3c586a64027f/" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <p class="text-gray-700 mb-2">Cybersecurity Essentials (Network Defense, Ethical Hacking, Digital Forensics), EC-Council</p>
+                    <a href="https://credentials.edx.org/credentials/c3d2928958d842caa6cbc22478cbdee6/" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <p class="text-gray-700 mb-2">DevOps & SRE Fundamentals, Linux Fundation</p>
+                    <a href="https://courses.edx.org/certificates/17534f61e34c4c5f8073fbcee92d90eb" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.8s;">
+                    <p class="text-gray-700 mb-2">Technical Support IBM</p>
+                    <a href="https://www.credly.com/badges/eddd2aa7-f941-465a-9788-d0e79195ea85" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 1.0s;">
+                    <p class="text-gray-700 mb-2">Technical Support Google</p>
+                    <a href="https://www.coursera.org/account/accomplishments/certificate/F8RUZYPX78HQ" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 1.2s;">
+                    <p class="text-gray-700 mb-2">Full Stack Meta</p>
+                    <a href="https://www.coursera.org/account/accomplishments/certificate/D5YNH72KNXRD" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 1.4s;">
+                    <p class="text-gray-700 mb-2">Data Science Orientation IBM</p>
+                    <a href="https://www.credly.com/badges/1e46643b-4ff2-4017-8a96-f5b764e1c82f" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 1.6s;">
+                    <p class="text-gray-700 mb-2">Power BI Intermediate & Advanced</p>
+                    <a href="https://ude.my/UC-e2aaa8ed-5164-41dc-9ac8-435e7ad60cf9" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 1.8s;">
+                    <p class="text-gray-700 mb-2">EF SET English Certificate 69/100 (C1 Advanced)</p>
+                    <a href="https://cert.efset.org/RNejuN" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Emmanuel Gael Minkandi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-fadeInUp').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d1f6b55bd3ed88',t:'MTc0NjgwMTc0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

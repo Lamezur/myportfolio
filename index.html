@@ -85,7 +85,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Custom animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -109,39 +108,36 @@
             color: #1E90FF;
             text-decoration: underline;
         }
-        .article-image {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .view-more {
+            background-color: #1E90FF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .article-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .view-more:hover {
+            background-color: #63B3ED;
         }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
-    <!-- Navigation -->
     <nav class="bg-blue-900 text-white fixed w-full top-0 z-10 shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold">Emmanuel Gael Minkandi</h1>
             <div class="space-x-6">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#certifications" class="nav-link">Certifications</a>
-                <a href="#projects" class="nav-link">Portfolio</a>
-                <a href="#blog" class="nav-link">Blog</a>
-                <a href="#cv" class="nav-link">CV</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="certifications.html" class="nav-link">Certifications</a>
+                <a href="portfolio/portfolio.html" class="nav-link">Portfolio</a>
+                <a href="articles/blog.html" class="nav-link">Blog</a>
+                <a href="contact/contact.html" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Header -->
     <header class="bg-blue-900 text-white py-20 mt-16">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-6">
-                <img src="Designer.jpg" alt="Emmanuel Gael Minkandi" class="profile-photo w-32 h-32 animate-fadeInUp" style="animation-delay: 0.1s;">
+                <img src="images/Gago.png" alt="Emmanuel Gael Minkandi" class="profile-photo w-32 h-32 animate-fadeInUp" style="animation-delay: 0.1s;">
             </div>
             <h1 class="text-5xl font-bold animate-fadeInUp">Emmanuel Gael Minkandi</h1>
             <p class="text-xl mt-4 animate-fadeInUp" style="animation-delay: 0.2s;">
@@ -149,13 +145,12 @@
             </p>
             <div class="mt-6 flex justify-center space-x-6 animate-fadeInUp" style="animation-delay: 0.4s;">
                 <a href="tel:+59895890307" class="hover:text-blue-300"><i class="fas fa-phone"></i> +598 95 890 307</a>
-                <a href="mailto:emmanuelgaelm@gmail.com" class="hover:text-blue-300"><i class="fas fa-envelope"></i> emmanuelgaelm@gmail.com</a>
+                <a href="mailto:emmanuel.minkandi@gmail.com" class="hover:text-blue-300"><i class="fas fa-envelope"></i> emmanuel.minkandi@gmail.com</a>
                 <a href="https://linkedin.com/in/emmanuel-minkandi-63457986" target="_blank" class="hover:text-blue-300"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
     <section id="about" class="py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center animate-fadeInUp">About Me</h2>
@@ -165,8 +160,7 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-16 bg-gray-200">
+    <section id="certifications-preview" class="py-16 bg-gray-200">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center animate-fadeInUp">Certifications</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -179,42 +173,24 @@
                     <a href="https://credentials.edx.org/credentials/c3d2928958d842caa6cbc22478cbdee6/" target="_blank" class="cert-link">View Certificate</a>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <p class="text-gray-700 mb-2">DevOps & SRE Fundamentals, Linux Foundation</p>
+                    <p class="text-gray-700 mb-2">DevOps & SRE Fundamentals, Linux Fundation</p>
                     <a href="https://courses.edx.org/certificates/17534f61e34c4c5f8073fbcee92d90eb" target="_blank" class="cert-link">View Certificate</a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.8s;">
                     <p class="text-gray-700 mb-2">Technical Support IBM</p>
                     <a href="https://www.credly.com/badges/eddd2aa7-f941-465a-9788-d0e79195ea85" target="_blank" class="cert-link">View Certificate</a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <p class="text-gray-700 mb-2">Technical Support Google</p>
-                    <a href="https://www.coursera.org/account/accomplishments/certificate/F8RUZYPX78HQ" target="_blank" class="cert-link">View Certificate</a>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <p class="text-gray-700 mb-2">Full Stack Meta</p>
-                    <a href="https://www.coursera.org/account/accomplishments/certificate/D5YNH72KNXRD" target="_blank" class="cert-link">View Certificate</a>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <p class="text-gray-700 mb-2">Data Science Orientation IBM</p>
-                    <a href="https://www.credly.com/badges/1e46643b-4ff2-4017-8a96-f5b764e1c82f" target="_blank" class="cert-link">View Certificate</a>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <p class="text-gray-700 mb-2">Power BI Intermediate & Advanced</p>
-                    <a href="https://ude.my/UC-e2aaa8ed-5164-41dc-9ac8-435e7ad60cf9" target="_blank" class="cert-link">View Certificate</a>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <p class="text-gray-700 mb-2">EF SET English Certificate 69/100 (C1 Advanced)</p>
-                    <a href="https://cert.efset.org/RNejuN" target="_blank" class="cert-link">View Certificate</a>
-                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="certifications.html" class="view-more animate-fadeInUp" style="animation-delay: 1.0s;">View More Certificates</a>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="bg-gray-200 py-16">
+    <section id="projects-preview" class="bg-gray-200 py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center animate-fadeInUp">Portfolio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="project-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
                     <h3 class="text-xl font-semibold text-blue-900 mb-2">School Management Application</h3>
                     <p class="text-gray-600 mb-4">Developed a full-stack app using React.js, Strapi, and MySQL to streamline administrative tasks for 500+ users.</p>
@@ -225,40 +201,44 @@
                     <p class="text-gray-600 mb-4">Built a scalable website for movie enthusiasts, integrating secure APIs and responsive design.</p>
                     <a href="https://github.com/Lamezur/Movieland" target="_blank" class="text-blue-900 hover:text-blue-300"><i class="fab fa-github"></i> View on GitHub</a>
                 </div>
-                <div class="project-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Abri</h3>
-                    <p class="text-gray-600 mb-4">A full-stack app for an NGO to help homeless people.</p>
-                    <a href="https://github.com/Lamezur/abri" target="_blank" class="text-blue-900 hover:text-blue-300"><i class="fab fa-github"></i> View on GitHub</a>
-                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="portfolio/portfolio.html" class="view-more animate-fadeInUp" style="animation-delay: 0.6s;">View More Projects</a>
             </div>
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-16">
+    <section id="blog-preview" class="py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center animate-fadeInUp">Blog</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
                     <h3 class="text-xl font-semibold text-blue-900 mb-2">Introduction to AWS Cloud Architecture</h3>
                     <p class="text-gray-600 mb-2">A beginner's guide to setting up scalable cloud solutions with AWS. Published on 08/05/2025.</p>
-                    <a href="article1.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                    <a href="articles/article1.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
                 </div>
                 <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
-                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Best Practices in DevOps</h3>
-                    <p class="text-gray-600 mb-2">Exploring CI/CD pipelines and containerization with Docker. Published on 05/05/2025.</p>
-                    <a href="article2.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
-                </div>
-                <div class="blog-card bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
                     <h3 class="text-xl font-semibold text-blue-900 mb-2">Cybersecurity Tips for 2025</h3>
                     <p class="text-gray-600 mb-2">Essential strategies to protect your systems from emerging threats. Published on 02/05/2025.</p>
-                    <a href="article3.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
+                    <a href="articles/article3.html" class="text-blue-900 hover:text-blue-300">Read more...</a>
                 </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="articles/blog.html" class="view-more animate-fadeInUp" style="animation-delay: 0.6s;">View More Articles</a>
             </div>
         </div>
     </section>
 
-    <!-- CV Download Section -->
+    <section id="contact-preview" class="py-16 bg-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 animate-fadeInUp">Contact</h2>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">
+                Interested in collaborating or have a question? Feel free to reach out!
+            </p>
+            <a href="contact/contact.html" class="view-more animate-fadeInUp" style="animation-delay: 0.4s;">Get in Touch</a>
+        </div>
+    </section>
+
     <section id="cv" class="py-16">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold text-blue-900 mb-8 animate-fadeInUp">Download My CV</h2>
@@ -271,15 +251,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-blue-900 text-white py-6">
         <div class="container mx-auto px-4 text-center">
             <p>© 2025 Emmanuel Gael Minkandi. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -289,7 +267,6 @@
             });
         });
 
-        // Trigger animations on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -302,5 +279,5 @@
             observer.observe(element);
         });
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d1e5ae38de31b6',t:'MTc0NjgwMTA1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d1fd855e5dadc3',t:'MTc0NjgwMjAyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
